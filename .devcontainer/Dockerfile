@@ -9,7 +9,7 @@ ARG DOCKER_ORG=${DOCKER_ORG:-apache}
 
 FROM --platform=${BUILDPLATFORM} ${DOCKER_ORG}/superset:${SUPERSET_VER}
 
-ENV NODE_VERSION=16
+ENV NODE_VERSION=18
 
 ARG USERNAME
 
@@ -62,6 +62,7 @@ RUN pip install pyodbc \
   mysqlclient \
   mysql-connector-python \
   pyhive \
+  pydruid[sqlalchemy] \
   sqlalchemy-drill \
   redis \
   sqlalchemy-vertica-python
